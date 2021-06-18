@@ -1,0 +1,190 @@
+.account {
+  * {
+    font-family: 'Mulish', sans-serif;
+  }
+
+  padding: 25px;
+
+  .account-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #EEEEEE;
+    padding: 2px;
+    border-radius: 3px;
+
+    button {
+      flex: 1;
+      background-color: #EEEEEE;
+      border: 0;
+      border-radius: 3px;
+      padding: 8px;
+      color: #484547;
+      cursor: pointer;
+
+      &.active {
+        background-color: #FFFFFF;
+      }
+    }
+  }
+
+  .password-line {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    .show-password {
+      position: absolute;
+      top: 30px;
+      right: 15px;
+      transform: translate(0, -50%);
+    }
+  }
+
+  #login {
+    input {
+      width: 100%;
+      background-color: #EEEEEE;
+
+      padding: 10px;
+      border: 0;
+      margin-top: 10px;
+      outline: none;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      color: #333;
+
+      &.invalid {
+        border: 1px solid red;
+      }
+
+      &::placeholder {
+        color: #BDBDBD;
+      }
+    }
+
+
+    .invalid-text {
+      font-size: 12px;
+      margin: 0;
+      padding: 0;
+      color: red;
+    }
+
+    button {
+      width: 100%;
+      background-color: #FF6002;
+      color: #FFFFFF;
+      border: 0;
+      padding: 15px 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    a {
+      color: #FF6002;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 20px;
+      display: block;
+    }
+  }
+
+  #signup {
+    .divide {
+      display: flex;
+      gap: 10px;
+      div{
+        width: 50%;
+      }
+      input {
+        width: 100%;
+      }
+    }
+
+    p {
+      font-size: 13px;
+    }
+
+    hr {
+      border-color: #e9e9e9;
+    }
+
+    input {
+      width: 100%;
+      background-color: #EEEEEE;
+      padding: 10px;
+      border: 0;
+      outline: none;
+      margin: 10px 0 10px 0;
+      border-radius: 5px;
+      color: #333;
+
+      &.invalid {
+        border: 1px solid red;
+      }
+
+      &::placeholder {
+        color: #BDBDBD;
+      }
+    }
+
+    .custom-checkbox {
+      position: relative;
+      user-select: none;
+
+      input {
+        padding: 0;
+        height: initial;
+        width: initial;
+        display: none;
+        margin-bottom: 0;
+        cursor: pointer;
+
+        &:checked + label:after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 2px;
+          left: 5px;
+          width: 3px;
+          height: 7px;
+          border: solid #FF6002;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+        }
+      }
+
+      label {
+        &:before {
+          content: '';
+          width: 13px;
+          height: 13px;
+          border-radius: 3px;
+          border: 1px solid #ddd;
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+
+      p {
+        margin-left: 25px;
+      }
+    }
+    button {
+      width: 100%;
+      background-color: #FF6002;
+      color: #FFFFFF;
+      border: 0;
+      padding: 15px 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 10px;
+      &:disabled{
+        background-color: #CCCCCC;
+        color:#979797;
+      }
+    }
+
+  }
+}

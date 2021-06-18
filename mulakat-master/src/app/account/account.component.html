@@ -1,0 +1,63 @@
+<div class="account">
+  <div class="account-buttons">
+    <button (click)="showLoginFormBtn()" class="active" #showLoginBtn>Giriş Yap</button>
+    <button (click)="showSignupFormBtn()" #showSignupBtn>Üye Ol</button>
+  </div>
+
+  <form [class.show]="showLoginForm" [class.hide]="!showLoginForm" action="" id="login"  (ngSubmit)="loginSubmit($event)" novalidate>
+    <div>
+      <input type="text" [class.invalid]="!emailFormCheck.value" placeholder="E-Posta adresi" [formControl]="email" />
+      <p class="invalid-text" *ngIf="!emailFormCheck.value">{{emailCheckErrorMessage.value}}</p>
+    </div>
+    <div class="password-line">
+      <input  type="text" [class.invalid]="!passwordFormCheck.value" placeholder="Şifre" [formControl]="password" #passwordEl>
+      <fa-icon [icon]="faEye" class="show-password" (click)="showPassword($event)"></fa-icon>
+      <p class="invalid-text" *ngIf="!passwordFormCheck.value">{{passwordCheckErrorMessage.value}}</p>
+    </div>
+    <button>Giriş Yap</button>
+    <a href="#">Şifremi Unuttum </a>
+  </form>
+  <form [class.show]="showSignupForm" [class.hide]="!showSignupForm" action="" id="signup" #signupForm>
+    <div style="display: flex;align-items: center;padding:10px 0">
+      <p>E-Posta adresi ile üye ol</p>
+      <hr  style="flex:1;height: 1px;margin-left: 10px" />
+    </div>
+    <div class="divide">
+      <div>
+        <input type="text" [class.invalid]="signUpNameFormCheck === false" placeholder="Ad" [formControl]="signUpName"/>
+        <p class="invalid-text" *ngIf="signUpNameFormCheck  === false">{{signUpNameFormCheckErrorMessage}}</p>
+      </div>
+      <div>
+        <input type="text" [class.invalid]="signUpSurNameFormCheck  === false" placeholder="Soyad" [formControl]="signUpSurname"/>
+        <p class="invalid-text" *ngIf="signUpSurNameFormCheck  === false">{{signUpSurNameFormCheckErrorMessage}}</p>
+      </div>
+    </div>
+    <div>
+      <input type="text" [class.invalid]="signUpEmailFormCheck  === false" placeholder="E-Posta" [formControl]="signUpEmail"/>
+      <p class="invalid-text" *ngIf="signUpEmailFormCheck  === false">{{signUpEmailFormCheckErrorMessage}}</p>
+    </div>
+    <div class="password-line">
+      <input  type="password" [class.invalid]="signUpPasswordFormCheck  === false" placeholder="Şifre" [formControl]="signUpPassword">
+      <fa-icon [icon]="faEye" class="show-password" (click)="showPassword($event)"></fa-icon>
+      <p class="invalid-text" *ngIf="signUpPasswordFormCheck  === false">{{signUpPasswordFormCheckErrorMessage}}</p>
+    </div>
+    <div class="password-line">
+      <input  type="password" [class.invalid]="signUpPasswordConfirmFormCheck  === false" placeholder="Şifre Onayı" [formControl]="singUpPasswordConfirm">
+      <fa-icon [icon]="faEye" class="show-password" (click)="showPassword($event)"></fa-icon>
+      <p class="invalid-text" *ngIf="signUpPasswordConfirmFormCheck  === false">{{signUpPasswordConfirmFormCheckErrorMessage}}</p>
+    </div>
+
+    <div class="custom-checkbox">
+      <input type="checkbox" id="signaturetext" [class.invalid]="signaturetextCheck === false" [formControl]="signaturetext"/>
+      <label for="signaturetext">
+        <p>
+          Önemli kampanyalardan haberdar olmak için <b>Rıza Metni</b> kapsamında elektronik ileti almak istiyorum.
+        </p>
+        <p class="invalid-text" *ngIf="signaturetextCheck  === false">{{signaturetextCheckFormCheckErrorMessage}}</p>
+      </label>
+    </div>
+    <div>
+      <button [disabled]="!enableSignUpBtn" #signUpBtn>Üye Ol</button>
+    </div>
+  </form>
+</div>
